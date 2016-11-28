@@ -3,6 +3,7 @@
 *.lo
 *.o
 *.obj
+*.pdb
 
 # Precompiled Headers
 *.gch
@@ -12,6 +13,7 @@
 *.so
 *.dylib
 *.dll
+*.suo
 
 # Fortran module files
 *.mod
@@ -21,7 +23,6 @@
 *.lai
 *.la
 *.a
-*.lib
 
 # Executables
 *.exe
