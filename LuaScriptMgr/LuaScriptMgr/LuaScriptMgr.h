@@ -3,6 +3,7 @@
 
 #include<iostream>
 #include"LuaArgsMgr.h"
+#include "PersonRegisterFuncs.h"
 
 using namespace std;
 
@@ -41,6 +42,7 @@ protected:
 	CLuaScriptMgr();
 	CLuaScriptMgr(CLuaScriptMgr &ref);
 	CLuaScriptMgr operator = (CLuaScriptMgr &ref);
+	void Init(lua_State *L);
 private:
 	static CLuaScriptMgr* m_pInstance;
 	lua_State * L;

@@ -155,11 +155,15 @@
     <ClCompile Include="LuaArgsMgr.cpp" />
     <ClCompile Include="LuaScriptMgr.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Person.cpp" />
+    <ClCompile Include="PersonRegisterFuncs.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameScriptMgr.h" />
     <ClInclude Include="LuaArgsMgr.h" />
     <ClInclude Include="LuaScriptMgr.h" />
+    <ClInclude Include="Person.h" />
+    <ClInclude Include="PersonRegisterFuncs.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

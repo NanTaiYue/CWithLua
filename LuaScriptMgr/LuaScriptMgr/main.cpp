@@ -1,8 +1,19 @@
 #include<iostream>
-using namespace std;
+
 #include"GameScriptMgr.h"
 #include"LuaScriptMgr.h"
 
+using namespace std;
+
+/*
+关于Lua中使用C++的函数有两种方式：
+1.将类定义的方法分别注册到lua_state中，在Lua中可随处调用这些函数，但是这类函数与具体的类型无关
+2.将C++的类以库的形式注入Lua中，在Lua可以使用如 local obj = Message.new()的形式来创建该类的一个对象
+  该对象obj可以调用一些指定的方法，这种就与具体的类型相关
+  通常实现这种方式是采用元表来操作的
+  
+  新增注入C++类到Lua中的方式，以便在Lua中使用相关的类型来创建指定的对象
+*/
 
 int main()
 {

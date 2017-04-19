@@ -2,6 +2,12 @@
 
 CLuaScriptMgr* CLuaScriptMgr::m_pInstance = nullptr;
 
+// 注册相关库
+static const luaL_Reg lua_reg_libs[] = {
+	{ "Person", Lua_OpenPersonLib }, //模块名字Person，注册函数Lua_OpenPersonLib
+	{ NULL, NULL }
+};
+
 CLuaScriptMgr::CLuaScriptMgr()
 {
 	L = luaL_newstate();
@@ -9,7 +15,25 @@ CLuaScriptMgr::CLuaScriptMgr()
 	{
 		cout << "创建Lua_State失败" << endl;
 	}
-	luaL_openlibs(L);
+	Init(L);
+}
+
+void CLuaScriptMgr::Init(lua_State * L)
+{
+	if (L == NULL)
+	{
+		cout << "初始化相关库失败" << endl;
+		return;
+	}
+	// 初始化Lua基本的库
+	//luaL_openlibs(L); // 加载所有的库
+	luaopen_base(L);   // 加载基本的库
+	//注册让lua使用的库
+	const luaL_Reg* lua_reg = lua_reg_libs;
+	for (; lua_reg->func; ++lua_reg) {
+		luaL_requiref(L, lua_reg->name, lua_reg->func, 1);
+		lua_pop(L, 1);
+	}
 }
 
 
